@@ -2,10 +2,10 @@
   "name": "cv-julien-broens-01",
   "version": "1.0.0",
   "description": "my cv",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
-    "test": "parcel watch index.html",
-    "prod": "parcel index.html"
+    "test": "parcel watch src/index.html",
+    "prod": "parcel src/index.html"
   },
   "keywords": [],
   "author": "Julien1988",

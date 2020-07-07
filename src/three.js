@@ -1,11 +1,11 @@
-import * as THREE from "./node_modules/three/build/three.module.js";
+import * as THREE from "../node_modules/three/build/three.module.js";
 
-import { EffectComposer } from "./node_modules/three/examples/jsm/postprocessing/EffectComposer.js";
-import { RenderPass } from "./node_modules/three/examples/jsm/postprocessing/RenderPass.js";
-import { ShaderPass } from "./node_modules/three/examples/jsm/postprocessing/ShaderPass.js";
+import { EffectComposer } from "../node_modules/three/examples/jsm/postprocessing/EffectComposer.js";
+import { RenderPass } from "../node_modules/three/examples/jsm/postprocessing/RenderPass.js";
+import { ShaderPass } from "../node_modules/three/examples/jsm/postprocessing/ShaderPass.js";
 
-import { RGBShiftShader } from "./node_modules/three/examples/jsm/shaders/RGBShiftShader.js";
-import { DotScreenShader } from "./node_modules/three/examples/jsm/shaders/DotScreenShader.js";
+import { RGBShiftShader } from "../node_modules/three/examples/jsm/shaders/RGBShiftShader.js";
+import { DotScreenShader } from "../node_modules/three/examples/jsm/shaders/DotScreenShader.js";
 
 var camera, scene, renderer, composer;
 var object, light;
