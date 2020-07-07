@@ -9,5 +9,9 @@
   },
   "keywords": [],
   "author": "Julien1988",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.13.1",
+    "three": "^0.118.3"
+  }
 }
