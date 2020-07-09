@@ -13,25 +13,28 @@ import faStyles from "font-awesome/css/font-awesome.css";
 import { ListGroup } from "react-bootstrap";
 
 const List = () => {
-  const skillsArrayIcones = [
-    "My Skills",
-    "<i class='fab fa-php'></i>",
-    "<i class='fab fa-css3-alt'></i>",
-    "<i class='fab fa-html5'></i>",
-    "<i class='fab fa-js'></i>",
-    "<i class='fab fa-sass'></i>",
-    "<i class='fab fa-wordpress'></i>",
-    "and more...",
-    "<button class='main__section__container__list__item__button button-button-02' id='showWhoIAm'>Who I am</button>",
-  ];
+  const skillsArrayIcones = ["react", "node", "js", "html5", "css3", "php"];
 
   return (
-    <FontAwesome
-      className="super-crazy-colors"
-      name="php"
-      size="4x"
-      style={{ textShadow: "0 1px 0 rgba(255, 255, 255, 1)" }}
-    />
+    <ListGroup as="ul" className="pt-3">
+      {skillsArrayIcones.map((item) => (
+        <ListGroup.Item as="li" className="bg-transparent text-center">
+          <FontAwesome
+            className="super-crazy-colors"
+            name={item}
+            size="2x"
+            style={{ color: "rgba(255, 255, 255, 1)" }}
+          />
+        </ListGroup.Item>
+      ))}
+      <ListGroup.Item
+        as="li"
+        className="bg-transparent text-center"
+        style={{ color: "rgba(255, 255, 255, 1)" }}
+      >
+        And more...
+      </ListGroup.Item>
+    </ListGroup>
   );
 };
 
