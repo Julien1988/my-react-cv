@@ -8,14 +8,20 @@
 
 import React from "react";
 
-import { Button } from "react-bootstrap";
+import { Button, Container, Row, Col } from "react-bootstrap";
 
 const Cv = () => {
   return (
-    <div>
-      <h1>Julien Broens - Online CV</h1>
-      <Button>Show My Skills</Button>
-    </div>
+    <Container fluid className="position-absolute">
+      <Row>
+        <Col>
+          <h1>Julien Broens - Online CV</h1>
+        </Col>
+      </Row>
+      <Row>
+        <Button>Show My Skills</Button>
+      </Row>
+    </Container>
   );
 };
 

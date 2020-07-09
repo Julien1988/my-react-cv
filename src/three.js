@@ -25,7 +25,7 @@ function init() {
   renderer = new THREE.WebGLRenderer();
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight);
-  document.body.appendChild(renderer.domElement);
+  document.querySelector("#three").appendChild(renderer.domElement);
 
   //
 
