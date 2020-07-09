@@ -1,3 +1,11 @@
+/* julien/cv
+ *
+ * /src/components/three.js
+ *
+ * coded by julien1988
+ * started at 06/07/2020
+ */
+
 import * as THREE from "../node_modules/three/build/three.module.js";
 
 import { EffectComposer } from "../node_modules/three/examples/jsm/postprocessing/EffectComposer.js";
