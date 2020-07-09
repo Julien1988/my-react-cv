@@ -7,16 +7,13 @@
  */
 
 import React from "react";
-import MyButton from "./button";
 
-const Tools = (showSkills) => {
-  return (
-    <MyButton
-      label={"Show My Skills"}
-      title={"Click Me"}
-      OnClick={showSkills}
-    />
-  );
-};
+import { Button } from "react-bootstrap";
+
+const Tools = ({ onClick }) => (
+  <Button variant="light" onClick={onClick} title="click Me !">
+    Show My Skills
+  </Button>
+);
 
 export default Tools;

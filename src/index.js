@@ -11,8 +11,6 @@ import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap";
 
-import Cv from "./components/cv";
+import App from "./components/app";
 
-console.log("coucou");
-
-ReactDOM.render(<Cv />, document.querySelector("#app"));
+ReactDOM.render(<App />, document.querySelector("#app"));
