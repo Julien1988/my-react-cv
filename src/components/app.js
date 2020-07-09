@@ -11,6 +11,7 @@ import React, { useState, useCallback } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Tools from "./tools/tools";
 import List from "./tools/list";
+import Modal from "./tools/modal";
 const FontAwesome = require("react-fontawesome");
 import faStyles from "font-awesome/css/font-awesome.css";
 
@@ -78,7 +79,7 @@ const App = () => {
   } else if (count === 2) {
     return (
       <Container fluid className="position-absolute pr-5 pl-5 mt-5">
-        <Row className="text-center bg-light rounded">
+        <Row className="text-center bg-light rounded mb-5">
           <Col>
             <h1>{title}</h1>
           </Col>
@@ -86,7 +87,7 @@ const App = () => {
 
         <Row>
           <Col>
-            <h1>TODO</h1>
+            <Modal />
           </Col>
         </Row>
         <Row className="text-center mt-5">
