@@ -31,7 +31,7 @@ const App = () => {
     }
   });
   const handleNextStep = useCallback(() => {
-    setTitle("My Skills");
+    setTitle("About Me");
     setCount(2);
   });
 
