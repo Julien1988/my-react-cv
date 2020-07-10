@@ -18,7 +18,10 @@ const List = () => {
   return (
     <ListGroup as="ul" className="pt-3">
       {skillsArrayIcones.map((item) => (
-        <ListGroup.Item as="li" className="bg-transparent text-center">
+        <ListGroup.Item
+          as="li"
+          className="bg-transparent text-center  border-0"
+        >
           <FontAwesome
             className="super-crazy-colors"
             name={item}
@@ -29,7 +32,7 @@ const List = () => {
       ))}
       <ListGroup.Item
         as="li"
-        className="bg-transparent text-center"
+        className="bg-transparent text-center  border-"
         style={{ color: "rgba(255, 255, 255, 1)" }}
       >
         And more...
