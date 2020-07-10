@@ -1,19 +1,65 @@
-import * as THREE from "../node_modules/three/build/three.module.js";
+import * as THREE from "../node_modules/three/build/three.module";
+// import disc from "/assets/*.png";
+import disc from "./textures/sprites/disc.png";
 
-import { EffectComposer } from "../node_modules/three/examples/jsm/postprocessing/EffectComposer.js";
-import { RenderPass } from "../node_modules/three/examples/jsm/postprocessing/RenderPass.js";
-import { ShaderPass } from "../node_modules/three/examples/jsm/postprocessing/ShaderPass.js";
+// import Stats from "../node_modules/three/examples/jsm/libs/stats.module.js";
 
-import { RGBShiftShader } from "../node_modules/three/examples/jsm/shaders/RGBShiftShader.js";
-import { DotScreenShader } from "../node_modules/three/examples/jsm/shaders/DotScreenShader.js";
+import { GUI } from "../node_modules/three/examples/jsm/libs/dat.gui.module.js";
 
-var camera, scene, renderer, composer;
-var object, light;
+var camera, scene, renderer, stats, material;
+var mouseX = 0,
+  mouseY = 0;
+
+var windowHalfX = window.innerWidth / 2;
+var windowHalfY = window.innerHeight / 2;
 
 init();
 animate();
 
 function init() {
+  camera = new THREE.PerspectiveCamera(
+    55,
+    window.innerWidth / window.innerHeight,
+    2,
+    2000
+  );
+  camera.position.z = 1000;
+
+  scene = new THREE.Scene();
+  scene.fog = new THREE.FogExp2(0x000000, 0.001);
+
+  var geometry = new THREE.BufferGeometry();
+  var vertices = [];
+
+  var sprite = new THREE.TextureLoader().load(disc);
+
+  for (var i = 0; i < 10000; i++) {
+    var x = 2000 * Math.random() - 1000;
+    var y = 2000 * Math.random() - 1000;
+    var z = 2000 * Math.random() - 1000;
+
+    vertices.push(x, y, z);
+  }
+
+  geometry.setAttribute(
+    "position",
+    new THREE.Float32BufferAttribute(vertices, 3)
+  );
+
+  material = new THREE.PointsMaterial({
+    size: 35,
+    sizeAttenuation: false,
+    map: sprite,
+    alphaTest: 0.5,
+    transparent: true,
+  });
+  material.color.setHSL(1.0, 0.3, 0.7);
+
+  var particles = new THREE.Points(geometry, material);
+  scene.add(particles);
+
+  //
+
   renderer = new THREE.WebGLRenderer();
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight);
@@ -21,55 +67,24 @@ function init() {
 
   //
 
-  camera = new THREE.PerspectiveCamera(
-    70,
-    window.innerWidth / window.innerHeight,
-    1,
-    1000
-  );
-  camera.position.z = 400;
+  // stats = new Stats();
+  // document.body.appendChild(stats.dom);
 
-  scene = new THREE.Scene();
-  scene.fog = new THREE.Fog(0x000000, 1, 1000);
+  //
 
-  object = new THREE.Object3D();
-  scene.add(object);
+  // var gui = new GUI();
 
-  var geometry = new THREE.SphereBufferGeometry(1, 4, 4);
-  var material = new THREE.MeshPhongMaterial({
-    color: 0xffffff,
-    flatShading: true,
-  });
+  // gui.add(material, "sizeAttenuation").onChange(function () {
+  //   material.needsUpdate = true;
+  // });
 
-  for (var i = 0; i < 100; i++) {
-    var mesh = new THREE.Mesh(geometry, material);
-    mesh.position
-      .set(Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5)
-      .normalize();
-    mesh.position.multiplyScalar(Math.random() * 400);
-    mesh.rotation.set(Math.random() * 2, Math.random() * 2, Math.random() * 2);
-    mesh.scale.x = mesh.scale.y = mesh.scale.z = Math.random() * 50;
-    object.add(mesh);
-  }
+  // gui.open();
 
-  scene.add(new THREE.AmbientLight(0x222222));
+  //
 
-  light = new THREE.DirectionalLight(0xffffff);
-  light.position.set(1, 1, 1);
-  scene.add(light);
-
-  // postprocessing
-
-  composer = new EffectComposer(renderer);
-  composer.addPass(new RenderPass(scene, camera));
-
-  var effect = new ShaderPass(DotScreenShader);
-  effect.uniforms["scale"].value = 4;
-  composer.addPass(effect);
-
-  var effect = new ShaderPass(RGBShiftShader);
-  effect.uniforms["amount"].value = 0.0015;
-  composer.addPass(effect);
+  document.addEventListener("mousemove", onDocumentMouseMove, false);
+  document.addEventListener("touchstart", onDocumentTouchStart, false);
+  document.addEventListener("touchmove", onDocumentTouchMove, false);
 
   //
 
@@ -77,18 +92,57 @@ function init() {
 }
 
 function onWindowResize() {
+  windowHalfX = window.innerWidth / 2;
+  windowHalfY = window.innerHeight / 2;
+
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
 
   renderer.setSize(window.innerWidth, window.innerHeight);
-  composer.setSize(window.innerWidth, window.innerHeight);
 }
+
+function onDocumentMouseMove(event) {
+  mouseX = event.clientX - windowHalfX;
+  mouseY = event.clientY - windowHalfY;
+}
+
+function onDocumentTouchStart(event) {
+  if (event.touches.length == 1) {
+    event.preventDefault();
+
+    mouseX = event.touches[0].pageX - windowHalfX;
+    mouseY = event.touches[0].pageY - windowHalfY;
+  }
+}
+
+function onDocumentTouchMove(event) {
+  if (event.touches.length == 1) {
+    event.preventDefault();
+
+    mouseX = event.touches[0].pageX - windowHalfX;
+    mouseY = event.touches[0].pageY - windowHalfY;
+  }
+}
+
+//
 
 function animate() {
   requestAnimationFrame(animate);
 
-  object.rotation.x += 0.005;
-  object.rotation.y += 0.01;
+  render();
+  // stats.update();
+}
 
-  composer.render();
+function render() {
+  var time = Date.now() * 0.00005;
+
+  camera.position.x += (mouseX - camera.position.x) * 0.05;
+  camera.position.y += (-mouseY - camera.position.y) * 0.05;
+
+  camera.lookAt(scene.position);
+
+  var h = ((360 * (1.0 + time)) % 360) / 360;
+  material.color.setHSL(h, 0.5, 0.5);
+
+  renderer.render(scene, camera);
 }
