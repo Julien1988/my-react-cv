@@ -2,3 +2,20 @@ body {
   margin: 0;
   padding: 0;
 }
+
+@keyframes transition {
+  0% {
+    margin-left: -70px;
+    opacity: 0;
+  }
+  100% {
+    margin-left: 0;
+    opacity: 1;
+  }
+}
+
+.skill-list-item,
+.super-crazy-colors {
+  opacity: 0;
+  animation: transition 1s ease-in-out 0.3s forwards;
+}

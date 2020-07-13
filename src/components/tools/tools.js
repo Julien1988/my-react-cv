@@ -10,8 +10,13 @@ import React from "react";
 
 import { Button } from "react-bootstrap";
 
-const Tools = ({ onClick, label }) => (
-  <Button variant="light" onClick={onClick} title="click Me !">
+const Tools = ({ onClick, label, className }) => (
+  <Button
+    className={className}
+    variant="light"
+    onClick={onClick}
+    title="click Me !"
+  >
     {label}
   </Button>
 );
