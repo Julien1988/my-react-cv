@@ -132,12 +132,8 @@ const Modal = () => {
           </Nav>
         </Card.Header>
         <Card.Body>
-          <Card.Title>Biograpgy</Card.Title>
-          <Card.Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            sodales arcu sit amet elit pretium dignissim. Fusce lacus nulla,
-            condimentum sed faucibus et, mattis vitae arcu.
-          </Card.Text>
+          <Card.Title>Biography</Card.Title>
+          <Card.Text>Coming soon</Card.Text>
         </Card.Body>
       </Card>
     );
