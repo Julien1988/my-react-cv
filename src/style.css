@@ -27,3 +27,57 @@ body {
 .btn-right {
   margin-left: 0.3em;
 }
+
+@media (min-width: 768px) {
+  .container-media-queries {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .row-button-container {
+    padding-top: 1em;
+  }
+  .btn-lg {
+    padding: 1.5em !important;
+    font-size: 1.5em !important;
+  }
+  .row-media-queries {
+    font-size: 2em;
+    padding-top: 2em;
+  }
+
+  .btn-right,
+  .btn-left,
+  .btn-custom {
+    font-size: 1.5em !important;
+  }
+
+  .card {
+    font-size: 1.5em;
+  }
+}
+
+@media (min-width: 992px) {
+  .container-media-queries {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .row-media-queries {
+    font-size: 1.5em;
+    padding-top: 2em;
+  }
+  .btn-right,
+  .btn-left,
+  .btn-custom {
+    margin-top: 3em;
+    font-size: 1em !important;
+  }
+
+  .card {
+    font-size: 1.5em;
+    margin-top: 2.5em;
+  }
+}

@@ -38,16 +38,23 @@ const App = () => {
   // Accueil
   if (count === 0) {
     return (
-      <Container fluid className="position-absolute pr-5 pl-5 mt-5">
+      <Container
+        fluid
+        className="position-absolute pr-5 pl-5 mt-5 container-media-queries"
+      >
         <Row className="text-center bg-light rounded">
           <Col>
             <h1>Julien - {title}</h1>
           </Col>
         </Row>
 
-        <Row className="text-center mt-5">
+        <Row className="text-center mt-5 row-button-container">
           <Col>
-            <Tools onClick={handleClickMe} label="Show My Skills" />
+            <Tools
+              onClick={handleClickMe}
+              label="Show My Skills"
+              className="btn-lg"
+            />
           </Col>
         </Row>
       </Container>
@@ -55,14 +62,17 @@ const App = () => {
     // Skills
   } else if (count === 1) {
     return (
-      <Container fluid className="position-absolute pr-5 pl-5 mt-5">
+      <Container
+        fluid
+        className="position-absolute pr-5 pl-5 mt-5 container-media-queries"
+      >
         <Row className="text-center bg-light rounded">
           <Col>
             <h1>{title}</h1>
           </Col>
         </Row>
 
-        <Row>
+        <Row className="row-media-queries">
           <Col>
             <List />
           </Col>
@@ -86,7 +96,10 @@ const App = () => {
     // Info
   } else if (count === 2) {
     return (
-      <Container fluid className="position-absolute pr-5 pl-5 mt-5">
+      <Container
+        fluid
+        className="position-absolute pr-5 pl-5 mt-5 container-media-queries"
+      >
         <Row className="text-center bg-light rounded mb-5">
           <Col>
             <h1>{title}</h1>
@@ -100,7 +113,11 @@ const App = () => {
         </Row>
         <Row className="text-center mt-5">
           <Col>
-            <Tools onClick={handleClickMe} label="Back" />
+            <Tools
+              onClick={handleClickMe}
+              label="Back"
+              className="btn-custom"
+            />
           </Col>
         </Row>
       </Container>
