@@ -42,7 +42,7 @@ const App = () => {
         fluid
         className="position-absolute pr-5 pl-5 mt-5 container-media-queries"
       >
-        <Row className="text-center bg-light rounded">
+        <Row className="text-center bg-light rounded row-title">
           <Col>
             <h1>Julien - {title}</h1>
           </Col>
