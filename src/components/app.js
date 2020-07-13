@@ -106,8 +106,8 @@ const App = () => {
           </Col>
         </Row>
 
-        <Row>
-          <Col>
+        <Row className="row-card-container">
+          <Col className="col-card-container">
             <Modal />
           </Col>
         </Row>

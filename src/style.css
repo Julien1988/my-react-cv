@@ -35,6 +35,11 @@ body {
   margin-left: 0.3em;
 }
 
+.row-card-container {
+  width: 120%;
+  height: 25em;
+}
+
 @media (min-width: 768px) {
   .row-title {
     width: 60%;
@@ -64,6 +69,11 @@ body {
     font-size: 1.5em !important;
   }
 
+  .row-card-container {
+    width: 80%;
+    height: 25em;
+  }
+
   .card {
     font-size: 1.5em;
   }
@@ -90,6 +100,11 @@ body {
   .btn-custom {
     margin-top: 3em;
     font-size: 1em !important;
+  }
+
+  .row-card-container {
+    width: 80%;
+    height: 25em;
   }
 
   .card {
