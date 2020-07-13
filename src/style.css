@@ -40,6 +40,12 @@ body {
   height: 25em;
 }
 
+@media (max-width: 767px) {
+  .container-media-queries {
+    padding-bottom: 2em;
+  }
+}
+
 @media (min-width: 768px) {
   .row-title {
     width: 60%;
