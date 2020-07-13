@@ -44,7 +44,7 @@ const App = () => {
       >
         <Row className="text-center bg-light rounded row-title">
           <Col>
-            <h1>Julien - {title}</h1>
+            <h1>Julien Broens - {title}</h1>
           </Col>
         </Row>
 
