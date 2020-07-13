@@ -13,6 +13,13 @@ body {
     opacity: 1;
   }
 }
+.container-media-queries {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
 
 .skill-list-item,
 .super-crazy-colors {
@@ -29,14 +36,19 @@ body {
 }
 
 @media (min-width: 768px) {
+  .row-title {
+    width: 60%;
+  }
   .container-media-queries {
-    height: 90vh;
+    min-height: 95vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
   }
   .row-button-container {
     padding-top: 1em;
+    margin-bottom: 20em;
   }
   .btn-lg {
     padding: 1.5em !important;
@@ -44,7 +56,6 @@ body {
   }
   .row-media-queries {
     font-size: 2em;
-    padding-top: 2em;
   }
 
   .btn-right,
@@ -60,7 +71,7 @@ body {
 
 @media (min-width: 992px) {
   .container-media-queries {
-    height: 50vh;
+    min-height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

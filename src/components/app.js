@@ -40,7 +40,7 @@ const App = () => {
     return (
       <Container
         fluid
-        className="position-absolute pr-5 pl-5 mt-5 container-media-queries"
+        className="position-absolute pr-5 pl-5 mt-4 container-media-queries"
       >
         <Row className="text-center bg-light rounded row-title">
           <Col>
@@ -64,7 +64,7 @@ const App = () => {
     return (
       <Container
         fluid
-        className="position-absolute pr-5 pl-5 mt-5 container-media-queries"
+        className="position-absolute pr-5 pl-5 mt-4 container-media-queries"
       >
         <Row className="text-center bg-light rounded">
           <Col>
@@ -77,7 +77,7 @@ const App = () => {
             <List />
           </Col>
         </Row>
-        <Row className="text-center mt-5">
+        <Row className="text-center mt-1">
           <Col>
             <Tools
               onClick={handleClickMe}
@@ -98,7 +98,7 @@ const App = () => {
     return (
       <Container
         fluid
-        className="position-absolute pr-5 pl-5 mt-5 container-media-queries"
+        className="position-absolute pr-5 pl-5 mt-4 container-media-queries"
       >
         <Row className="text-center bg-light rounded mb-5">
           <Col>
@@ -111,7 +111,7 @@ const App = () => {
             <Modal />
           </Col>
         </Row>
-        <Row className="text-center mt-5">
+        <Row className="text-center mt-1">
           <Col>
             <Tools
               onClick={handleClickMe}
