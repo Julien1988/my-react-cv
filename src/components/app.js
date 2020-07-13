@@ -69,8 +69,16 @@ const App = () => {
         </Row>
         <Row className="text-center mt-5">
           <Col>
-            <Tools onClick={handleClickMe} label="Back" />
-            <Tools onClick={handleNextStep} label="Next" />
+            <Tools
+              onClick={handleClickMe}
+              label="Back"
+              className={"btn-left"}
+            />
+            <Tools
+              onClick={handleNextStep}
+              label="Next"
+              className={"btn-right"}
+            />
           </Col>
         </Row>
       </Container>
